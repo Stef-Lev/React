@@ -44,5 +44,13 @@ body{
   background-color: rgb(218, 218, 218);
   cursor: pointer;
 }
+.retry-btn {
+  font-size:25px;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding:5px 5px;
+  background-color: rgb(218, 218, 218);
+  cursor: pointer;
+}
 
 

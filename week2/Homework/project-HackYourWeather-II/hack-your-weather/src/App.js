@@ -21,7 +21,13 @@ function App() {
     setLoading(true)
 
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`)
-      .then(res => res.json())
+      .then(res => {
+        if (res.ok) {
+          return res.json()
+        } else {
+          throw new Error('City not found')
+        }
+      })
       .then(data => {
         setWeather(data)
         setCity('')
@@ -47,7 +53,10 @@ function App() {
         width={200}
         timeout={3000} /> : <WeatherCard weather={weather} />}
     </div>
-  ) : <h1>Something went wrong with your query!</h1>
+  ) : (<div className="App" >
+    <h1>The city you searched for does not exist</h1>
+    <button onClick={() => window.location.reload(false)} className='retry-btn'>Retry</button>
+  </div >)
 }
 
 
