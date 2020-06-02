@@ -59,7 +59,6 @@ function App() {
   </div >)
 }
 
-
 function CitySearch({ handleChange, handleClick, handleSubmit, city }) {
 
   return (<form className='Form' onSubmit={handleSubmit}>
@@ -68,11 +67,10 @@ function CitySearch({ handleChange, handleClick, handleSubmit, city }) {
   </form>)
 }
 
-
 function WeatherCard({ weather }) {
 
   return Object.keys(weather).length === 0 ? null : (<div className="Card">
-    <h1>{weather.name}</h1>
+    <h1>{weather.name}, {weather.sys.country}</h1>
     <h2>{weather.weather[0].main}</h2>
     <h3><em>{weather.weather[0].description.charAt(0).toUpperCase() + weather.weather[0].description.slice(1)}</em></h3>
     <p>Min Temp: <strong>{Math.round(weather.main.temp_min - 273.15)} °C</strong></p>
